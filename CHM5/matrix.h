@@ -15,6 +15,7 @@ public:
 	vector<mytype> ggl, ggu, di;
 
 	void Mat_init();
+	void Gilb_init();
 	void MultMatXVec(vector<mytype>& x, vector<mytype>& res);
 	mytype PowSolv(vector<mytype>& x0, int maxiter, int eps);
 	mytype InversePowSolv(vector<mytype>& x0, int maxiter, int eps);
@@ -27,6 +28,13 @@ private:
 	void LUSolver(vector<mytype>& x, vector<mytype>& b);
 };
 
+template <typename mytype>
+void Mat<mytype>::Gilb_init()
+{
+	ifstream F_di("di.txt");
+	F_di >> n;
+	F_di.close();
+}
 
 template <typename mytype>
 void Mat<mytype>::Mat_init()
